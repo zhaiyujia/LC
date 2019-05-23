@@ -1,2 +1,7 @@
-# LeetCode
-Learn to LeetCode
+s1 = 100*a + 10*b + 1*c
+s2 = a + b + c
+(s1-s2)
+    = 99*a+9*b
+    = 9(11*a + b)
+    
+    
