@@ -34,34 +34,61 @@ public class Solution {
 
 	}
 
-
 	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
-
-		if(root==null){
-			return new ArrayList<List<Integer>>();
+		List<List<Integer>> lists = new ArrayList<>();
+		func(lists, 0, root);
+		for (int i = 0, j = lists.size() - 1; i < j; i++, j--) {
+			List<Integer> temp = lists.get(i);
+			lists.set(i, lists.get(j));
+			lists.set(j, temp);
 		}
-
-		List<List<Integer>> result = new ArrayList<>();
-		Queue<TreeNode> queue = new LinkedList<>();
-		Queue<TreeNode> q = null;
-		queue.add(root);
-		while (!queue.isEmpty()){
-			q = new LinkedList<>();
-			List<Integer> list = new ArrayList<>();
-			int size = queue.size();
-			for (int i = 0; i < size; i++) {
-				TreeNode node = queue.poll();
-				list.add(node.val);
-				if(node.left!=null){
-					q.offer(node.left);
-				}
-				if(node.right!=null){
-					q.offer(node.right);
-				}
-			}
-			result.add(0,list);
-			queue = q;
-		}
-		return result;
+		return lists;
 	}
+
+
+	private static void func(List<List<Integer>> lists, int level, TreeNode root) {
+		if (root == null) {
+			return;
+		}
+		if (lists.size() == level) {
+			List<Integer> list = new ArrayList<>();
+			list.add(root.val);
+			lists.add(list);
+		} else {
+			lists.get(level).add(root.val);
+		}
+		func(lists, level + 1, root.left);
+		func(lists, level + 1, root.right);
+	}
+
+
+//	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
+//
+//		if(root==null){
+//			return new ArrayList<List<Integer>>();
+//		}
+//
+//		List<List<Integer>> result = new ArrayList<>();
+//		Queue<TreeNode> queue = new LinkedList<>();
+//		Queue<TreeNode> q = null;
+//		queue.add(root);
+//		while (!queue.isEmpty()){
+//			q = new LinkedList<>();
+//			List<Integer> list = new ArrayList<>();
+//			int size = queue.size();
+//			for (int i = 0; i < size; i++) {
+//				TreeNode node = queue.poll();
+//				list.add(node.val);
+//				if(node.left!=null){
+//					q.offer(node.left);
+//				}
+//				if(node.right!=null){
+//					q.offer(node.right);
+//				}
+//			}
+//			result.add(0,list);
+//			queue = q;
+//		}
+//		return result;
+//	}
 }
