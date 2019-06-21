@@ -40,9 +40,20 @@ ________________________
 
 	public static boolean hasAlternatingBits(int n) {
 
-		int temp = n ^ (n>>1);
-		int re = temp & (temp+1);
-		return re==0;
+		while (n != 0) {
+			int k = n & 1;
+			n >>= 1;
+			if ((n & 1) == k) {
+				return false;
+			}
+		}
+		return true;
+
+
+
+//		int temp = n ^ (n>>1);
+//		int re = temp & (temp+1);
+//		return re==0;
 
 
 //		String str = Integer.toBinaryString(n);
