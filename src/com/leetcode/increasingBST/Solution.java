@@ -2,6 +2,7 @@ package com.leetcode.increasingBST;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author zhaiyj
@@ -25,49 +26,64 @@ public class Solution {
 
 
 		five.left = three;
-		five.right = six;
+//		five.right = six;
 
 		three.left = two;
-		three.right = four;
+//		three.right = four;
 
 		two.left = one;
-
-		six.right = eight;
-		eight.left = seven;
-		eight.right = nine;
+//
+//		six.right = eight;
+//		eight.left = seven;
+//		eight.right = nine;
 		increasingBST(five);
 
 	}
 
 	public static TreeNode increasingBST(TreeNode root) {
 
-		infixOrderTree(root, list);
-		createNode(root, -1);
-		return root.right;
+		return increasingBST(root,null);
+//		infixOrderTree(root, list);
+//		createNode(root, -1);
+//		return root.right;
 	}
-	static void createNode(TreeNode root, int k){
-		if(k+1==list.size()){
-			return;
+
+	static TreeNode increasingBST(TreeNode root, TreeNode tail){
+		if(root==null){
+			return tail;
 		}
+
+		TreeNode res  = increasingBST(root.left, root);
 		root.left = null;
-		TreeNode tmp = new TreeNode(list.get(k+1));
-		root.right = tmp;
-		root = root.right;
-		createNode(root, k+1);
+		root.right = increasingBST(root.right, tail);
+		return res;
 	}
 
 
-	// 中序遍历
-	public static List<Integer> infixOrderTree(TreeNode node, List list) {
-		if (node.left != null) {
-			infixOrderTree(node.left, list);
-		}
-		list.add(node.val);
-		if (node.right != null) {
-			infixOrderTree(node.right, list);
-		}
-		return list;
-	}
+
+//	static void createNode(TreeNode root, int k){
+//		if(k+1==list.size()){
+//			return;
+//		}
+//		root.left = null;
+//		TreeNode tmp = new TreeNode(list.get(k+1));
+//		root.right = tmp;
+//		root = root.right;
+//		createNode(root, k+1);
+//	}
+//
+//
+//	// 中序遍历 5 3 6
+//	public static List<Integer> infixOrderTree(TreeNode node, List list) {
+//		if (node.left != null) {
+//			infixOrderTree(node.left, list);
+//		}
+//		list.add(node.val);
+//		if (node.right != null) {
+//			infixOrderTree(node.right, list);
+//		}
+//		return list;
+//	}
 
 
 }
