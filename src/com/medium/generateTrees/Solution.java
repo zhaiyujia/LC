@@ -12,7 +12,7 @@ import java.util.List;
 public class Solution {
 
     public static void main(String[] args) {
-        int n = 2;
+        int n = 3;
         generateTrees(n);
     }
 
@@ -20,14 +20,14 @@ public class Solution {
     public static List<TreeNode> generateTrees(int n) {
 
         List<TreeNode>[] res = new ArrayList[n + 1];
-        res[0] = new ArrayList<TreeNode>();
+        res[0] = new ArrayList<>();
         if (n == 0) {
             return res[0];
         }
 
         res[0].add(null);
         for (int len = 1; len <= n; len++) {
-            res[len] = new ArrayList<TreeNode>();
+            res[len] = new ArrayList<>();
             for (int root = 1; root <= len; root++) {
                 int left = root - 1;
                 int right = len - root;
