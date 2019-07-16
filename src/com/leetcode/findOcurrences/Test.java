@@ -11,6 +11,4 @@ public class Test {
         String str = "[ A d s a d s a";
         str.split(" ");
     }
-
-
 }
