@@ -7,6 +7,7 @@ package com.leetcode.findOcurrences;
  */
 public class Test {
 
+
     public static void main(String[] args) {
         String str = "[ A d s a d s a";
         str.split(" ");
