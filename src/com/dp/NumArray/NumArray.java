@@ -1,4 +1,4 @@
-package com.dynamicprogramming.NumArray;
+package com.dp.NumArray;
 
 import javafx.util.Pair;
 

@@ -1,4 +1,4 @@
-package com.dynamicprogramming.maxProfit;
+package com.dp.maxProfit;
 
 /**
  * @author zhaiyj

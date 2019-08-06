@@ -1,4 +1,4 @@
-package com.dynamicprogramming.minCostClimbingStairs;
+package com.dp.minCostClimbingStairs;
 
 /**
  * @author zhaiyj

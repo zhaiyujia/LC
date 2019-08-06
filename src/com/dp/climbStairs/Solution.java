@@ -1,7 +1,4 @@
-package com.dynamicprogramming.climbStairs;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.dp.climbStairs;
 
 /**
  * @author zhaiyj

@@ -1,4 +1,4 @@
-package com.dynamicprogramming.maxSubArray;
+package com.dp.maxSubArray;
 
 /**
  * @author zhaiyj

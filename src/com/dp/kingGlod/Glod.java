@@ -1,4 +1,4 @@
-package com.dynamicprogramming.kingGlod;
+package com.dp.kingGlod;
 
 /**
  * @author zhaiyj

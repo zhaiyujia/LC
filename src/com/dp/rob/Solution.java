@@ -1,4 +1,4 @@
-package com.dynamicprogramming.rob;
+package com.dp.rob;
 
 import java.util.Objects;
 

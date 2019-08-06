@@ -1,4 +1,4 @@
-package com.dynamicprogramming.divisorGame;
+package com.dp.divisorGame;
 
 /**
  * @author zhaiyj
