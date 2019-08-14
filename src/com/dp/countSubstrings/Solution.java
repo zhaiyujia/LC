@@ -6,4 +6,13 @@ package com.dp.countSubstrings;
  * @description
  */
 public class Solution {
+
+    public static void main(String[] args) {
+
+    }
+
+    public static int countSubstrings(String s) {
+
+    }
+
 }
