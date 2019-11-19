@@ -17,3 +17,6 @@
 提示：
 1 <= tiles.length <= 7
 tiles 由大写英文字母组成
+
+回溯算法  深度优先遍历
+https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741376.html
