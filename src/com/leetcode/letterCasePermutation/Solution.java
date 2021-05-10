@@ -14,14 +14,8 @@ import java.util.List;
 public class Solution {
 
 	public static void main(String[] args) {
-		MathContext mc = new MathContext(5);
-		BigDecimal a = new BigDecimal(1);
-		BigDecimal b = new BigDecimal(1.5,mc);
-
-		System.out.println(a.compareTo(b));
-
 		String s = "a1b2";
-//		letterCasePermutation(s);
+		letterCasePermutation(s);
 	}
 
 	public static List<String> letterCasePermutation(String S) {

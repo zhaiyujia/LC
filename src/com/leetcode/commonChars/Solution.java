@@ -1,8 +1,5 @@
 package com.leetcode.commonChars;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-
 import java.util.*;
 
 /**

@@ -1,10 +1,5 @@
 package com.leetcode.reverseWords;
 
-import com.google.common.collect.Lists;
-
-import java.util.LinkedList;
-import java.util.Objects;
-import java.util.Stack;
 
 /**
  * @author zhaiyj

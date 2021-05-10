@@ -1,7 +1,7 @@
 package com.leetcode.maxdepth;
 
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -23,20 +23,20 @@ public class Solution {
 //
 //		Node root = new Node(1, Lists.newArrayList(l2, z2, r2));
 
-		Node l3 = new Node(5, Lists.newArrayList());
-		Node r3 = new Node(0, Lists.newArrayList());
+//		Node l3 = new Node(5, new ArrayList<>());
+//		Node r3 = new Node(0, new ArrayList<>());
+//
+//
+//		Node r33 = new Node(6, Lists.newArrayList());
+//
+//		Node l2 = new Node(10, Lists.newArrayList(l3, r3));
+//		Node r2 = new Node(3, Lists.newArrayList(r33));
+//
+//		Node root = new Node(1, Lists.newArrayList(l2, r2));
+//
 
-
-		Node r33 = new Node(6, Lists.newArrayList());
-
-		Node l2 = new Node(10, Lists.newArrayList(l3, r3));
-		Node r2 = new Node(3, Lists.newArrayList(r33));
-
-		Node root = new Node(1, Lists.newArrayList(l2, r2));
-
-
-		int result = maxDepth(root);
-		System.out.println(result);
+//		int result = maxDepth(root);
+//		System.out.println(result);
 	}
 
 	public static int maxDepth(Node root) {
