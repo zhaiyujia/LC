@@ -4,6 +4,7 @@ package com.dp.kingGlod;
  * @author zhaiyj
  * @date 2019/8/1 9:09
  * @description
+ * 黄金矿工
  */
 public class Glod {
 

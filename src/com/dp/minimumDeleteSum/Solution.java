@@ -11,7 +11,8 @@ public class Solution {
     public static void main(String[] args) {
         String s1 = "sea";
         String s2 = "eat";
-        minimumDeleteSum(s1, s2);
+        int i = minimumDeleteSum(s1, s2);
+        System.out.println(i);
     }
 
     public static int minimumDeleteSum(String s1, String s2) {

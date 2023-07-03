@@ -3,7 +3,7 @@ package com.dp.minCostClimbingStairs;
 /**
  * @author zhaiyj
  * @date 2019/7/31 9:05
- * @description
+ * @description 最小花费爬楼梯
  */
 public class Solution {
 
