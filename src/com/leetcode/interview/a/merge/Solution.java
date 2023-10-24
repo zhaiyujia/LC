@@ -75,10 +75,6 @@ public class Solution {
     }
 
     public static void mergeV2(int[] nums1, int m, int[] nums2, int n){
-        while (n>0 || m >0){
-            
-        }
-
         int p1 = m - 1, p2 = n - 1, p = m + n - 1;
         while (p2 >= 0) { // nums2 还有要合并的元素
             // 如果 p1 < 0，那么走 else 分支，把 nums2 合并到 nums1 中
