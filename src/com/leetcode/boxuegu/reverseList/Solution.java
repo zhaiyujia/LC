@@ -24,7 +24,7 @@ public class Solution {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        s.reverseList(n1);
+        s.reverseListV2(n1);
     }
 
 
@@ -41,15 +41,13 @@ public class Solution {
     }
 
     public ListNode reverseListV2(ListNode head){
-        ListNode pre = null;
-        ListNode curr = head;
-        while (head != null){
-            ListNode next = curr.next;
-            curr.next = pre;
-            pre = curr;
-            curr = next;
+        if (head == null || head.next == null) {
+            return head;
         }
-        return pre;
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
     }
 
 }
