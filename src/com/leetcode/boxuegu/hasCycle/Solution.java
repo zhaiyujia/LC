@@ -62,6 +62,8 @@ public class Solution {
         return false;
     }
 
+
+    // 这个方法是错的，需要看题解进一步处理
     public boolean hasCycleV2(ListNode head) {
         if(head == null || head.next == null){
             return false;
