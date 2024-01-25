@@ -16,26 +16,6 @@ public class Solution {
         if(nums.length == 1){
             return 1;
         }
-        int i = 0;
-        int j = 0;
-        for(; i<nums.length;i++){
-            if(i > 0 && nums[i] == nums[j]){
-                continue;
-            }else{
-                nums[j] = nums[i];
-                j++;
-            }
-        }
-        return j;
-    }
-
-    public int removeDuplicates1(int[] nums) {
-        if(nums == null || nums.length ==0){
-            return 0;
-        }
-        if(nums.length == 1){
-            return 1;
-        }
         int count = 0;
         int p = 0;
         for(int i=0;i<nums.length;i++){
@@ -47,5 +27,38 @@ public class Solution {
         }
         return count;
     }
+
+
+    public int removeDuplicates1(int[] nums) {
+        if(nums == null || nums.length == 0) return 0;
+        int p = 0;
+        int q = 1;
+        while(q < nums.length){
+            if(nums[p] != nums[q]){
+                nums[p + 1] = nums[q];
+                p++;
+            }
+            q++;
+        }
+        return p + 1;
+    }
+
+
+    public int removeDuplicates2(int[] nums) {
+        if(nums == null || nums.length == 0) return 0;
+        int p = 0;
+        int q = 1;
+        while(q < nums.length){
+            if(nums[p] != nums[q]){
+                if(q - p > 1){
+                    nums[p + 1] = nums[q];
+                }
+                p++;
+            }
+            q++;
+        }
+        return p + 1;
+    }
+
 
 }
