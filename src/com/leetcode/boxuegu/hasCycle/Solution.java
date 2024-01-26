@@ -25,7 +25,8 @@ public class Solution {
         n2.next = n3;
         n3.next = n4;
         n4.next = n2;
-        solution.hasCycleV1(n1);
+        boolean b = solution.hasCycleV1(n1);
+        System.out.println(b);
     }
 
     public boolean hasCycle(ListNode head) {
