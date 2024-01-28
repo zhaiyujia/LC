@@ -13,21 +13,6 @@ import java.util.Set;
  */
 public class Solution {
 
-    public ListNode detectCycle(ListNode head) {
-        if(head == null || head.next == null){
-            return null;
-        }
-
-        Set<ListNode> cache = new HashSet<>();
-        while (head != null){
-            if(cache.contains(head)){
-                return head;
-            }
-            cache.add(head);
-            head = head.next;
-        }
-        return null;
-    }
 
     public ListNode detectCycle1(ListNode head) {
         if(head == null || head.next == null){

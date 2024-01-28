@@ -23,9 +23,9 @@ public class Solution {
     // 暴力破解
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i+1; j < nums.length; j++) {
-                if(nums[i] + nums[j] == target){
-                    return new int[]{i,j};
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
                 }
             }
         }
@@ -35,13 +35,14 @@ public class Solution {
     // 缓存解法，空间换时间
     public int[] twoSum1(int[] nums, int target) {
         Map<Integer, Integer> cache = new HashMap<>();
-        for(int i=0;i<nums.length;i++){
-            if(cache.containsKey(target - nums[i])){
+        for (int i = 0; i < nums.length; i++) {
+            if (cache.containsKey(target - nums[i])) {
                 int j = target - nums[i];
                 return new int[]{i, cache.get(j)};
             }
             cache.put(nums[i], i);
         }
-        return null;    }
+        return null;
+    }
 
 }
