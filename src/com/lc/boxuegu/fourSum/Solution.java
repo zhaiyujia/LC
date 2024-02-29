@@ -15,17 +15,79 @@ import java.util.List;
 public class Solution {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 0, 2, 1, -1, -3, 6, 4, 5, 7, 10};
+        int[] nums = new int[]{0,0,0,1000000000,1000000000,1000000000,1000000000};
         Solution solution = new Solution();
-        List<List<Integer>> lists = solution.fourSum(nums, 4);
+        List<List<Integer>> lists = solution.fourSum23(nums, 1000000000);
         for (List<Integer> list : lists) {
             list.forEach(o -> System.out.println(o + ","));
             System.out.println("---------------------");
         }
     }
 
-    // 有问题
     public List<List<Integer>> fourSum(int[] nums, int target) {
+        if(nums == null || nums.length < 4){
+            return Collections.emptyList();
+        }
+
+        Arrays.sort(nums);
+
+        List<List<Integer>> list = new ArrayList();
+        for(int i=0;i<nums.length-3;i++){
+            if(i>0 && nums[i] == nums[i-1]){
+                continue;
+            }
+
+            if((long)nums[i] + nums[i+1] + nums[i+2] + nums[i+3] > target){
+                break;
+            }
+
+            if((long)nums[i] + nums[nums.length-3] +
+                    nums[nums.length-2] + nums[nums.length-1] < target){
+                continue;
+            }
+
+            for(int j=i+1;j<nums.length-2;j++){
+                if(j>i+1 && nums[j] == nums[j-1]){
+                    continue;
+                }
+                if((long)nums[i] + nums[j] + nums[j+1] + nums[j+2] > target){
+                    break;
+                }
+                if((long)nums[i] + nums[j] + nums[nums.length-2] + nums[nums.length-1] < target){
+                    continue;
+                }
+
+                int a = nums[i];
+                int b = nums[j];
+                int m = j + 1;
+                int n = nums.length - 1;
+                while(m < n){
+                    int c = nums[m];
+                    int d =  nums[n];
+                    if(a+b+c+d == target){
+                        list.add(Arrays.asList(a, b, c, d));
+                        while(m < n && nums[m] == nums[m+1]){
+                            m++;
+                        }
+
+                        while(m < n && nums[n] == nums[n-1]){
+                            n--;
+                        }
+                        m++;
+                        n--;
+                    }else if(a+b+c+d < target){
+                        m++;
+                    }else{
+                        n--;
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
+    // 有问题
+    public List<List<Integer>> fourSum23(int[] nums, int target) {
         if (nums == null || nums.length < 4) {
             return Collections.EMPTY_LIST;
         }
@@ -38,11 +100,11 @@ public class Solution {
                 continue;
             }
 
-            if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
+            if ((long)nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
                 break;
             }
 
-            if (nums[nums.length - 1] + nums[nums.length - 2] + nums[nums.length - 3] + nums[nums.length - 4] < target) {
+            if ((long)nums[nums.length - 1] + nums[nums.length - 2] + nums[nums.length - 3] + nums[nums.length - 4] < target) {
                 continue;
             }
 
@@ -51,13 +113,10 @@ public class Solution {
                     continue;
                 }
 
-                int min = nums[i] + nums[j] + nums[j + 1] + nums[j + 2];
-                int max = nums[i] + nums[nums.length - 1] + nums[nums.length - 2] + nums[nums.length - 3];
-                if (min > target) {
+                if((long)nums[i] + nums[j] + nums[j + 1] + nums[j + 2] >  target){
                     break;
-                }
-
-                if (max < target) {
+                };
+                if((long)nums[i] + nums[nums.length - 1] + nums[nums.length - 2] + nums[nums.length - 3] < target){
                     continue;
                 }
 
