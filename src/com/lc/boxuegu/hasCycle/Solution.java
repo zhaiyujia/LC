@@ -25,11 +25,11 @@ public class Solution {
         n2.next = n3;
         n3.next = n4;
         n4.next = n2;
-        boolean b = solution.hasCycleV1(n1);
+        boolean b = solution.hasCycle2_3(n1);
         System.out.println(b);
     }
 
-    public boolean hasCycle(ListNode head) {
+    public boolean hasCycle1_1(ListNode head) {
         if (head == null || head.next == null) {
             return false;
         }
@@ -52,7 +52,7 @@ public class Solution {
         return true;
     }
 
-    public boolean hasCycleV1(ListNode head) {
+    public boolean hasCycle1_2(ListNode head) {
         Set<ListNode> seen = new HashSet<>();
         while (head != null){
             if(!seen.add(head)){
@@ -64,21 +64,50 @@ public class Solution {
     }
 
 
-    // 这个方法是错的，需要看题解进一步处理
-    public boolean hasCycleV2(ListNode head) {
+    public boolean hasCycle2_1(ListNode head){
         if(head == null || head.next == null){
             return false;
         }
 
-        if (head == head.next) {
-            return true;
-        }
+        ListNode fast = head;
+        ListNode slow = head;
 
-        ListNode nextNode = head.next;
-        head.next = nextNode;
-        return hasCycleV2(nextNode);
+        while (true){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+            if(fast == null){
+                return false;
+            }
+
+        }
     }
 
+    public boolean hasCycle2_2(ListNode head){
+        Set<ListNode> cache = new HashSet<>();
+        while (head != null){
+            if(!cache.add(head)){
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
+    }
+
+    public boolean hasCycle2_3(ListNode head){
+        if(head == null || head.next == null) return false;
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
 
     static class ListNode {
         int val;
