@@ -11,10 +11,9 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] height = new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7};
-        int i = maxArea2(height);
+        int i = maxAreaNext1_2(height);
         System.out.println(i);
     }
-
 
 
     // 暴力解法，直接穷举
@@ -33,7 +32,7 @@ public class Solution {
             // 当前接水量
             for (int j = i + 1; j < size; j++) {
                 // 取最小的存水量
-                int min =Math.min(height[j], height[i]);
+                int min = Math.min(height[j], height[i]);
                 // 计算两个位置之间的距离
                 int distance = j - i;
                 // 计算面积, 面积 = 最小节水量 * 距离
@@ -51,14 +50,14 @@ public class Solution {
         //
         int i = 0;
         int j = height.length - 1;
-        int min, max=0;
-        while(i<j){
-            min = Math.min(height[i],height[j]);
-            max = Math.max(min * (j-i),max);
-            while(i<j && height[i] <= min) {
+        int min, max = 0;
+        while (i < j) {
+            min = Math.min(height[i], height[j]);
+            max = Math.max(min * (j - i), max);
+            while (i < j && height[i] <= min) {
                 i++;
             }
-            while(i<j && height[j] <= min) {
+            while (i < j && height[j] <= min) {
                 j--;
             }
         }
@@ -88,5 +87,55 @@ public class Solution {
         // 返回最大融水量
         return ans;
     }
+
+    /*未accept*/
+    public static int maxAreaNext1_0(int[] height) {
+        int area = 0;
+        for (int i = 0; i < height.length; i++) {
+            for (int j = 1; j < height.length; j++) {
+                int newArea = Math.min(height[i], height[j]) * (j - i);
+                area = Math.max(newArea, area);
+            }
+        }
+        return area;
+    }
+
+    public static int maxAreaNext1_1(int[] height) {
+        int i = 0;
+        int j = height.length - 1;
+        int max = 0;
+        int min = 0;
+        while (i < j) {
+            min = Math.min(height[i], height[j]);
+            max = Math.max(min * (j - i), max);
+            while (i < j && height[i] <= min) {
+                i++;
+            }
+
+            while (i < j && height[j] <= min) {
+                j--;
+            }
+        }
+        return max;
+    }
+
+
+    public static int maxAreaNext1_2(int[] height) {
+        int i = 0;
+        int j = height.length - 1;
+        int max = 0;
+        int min = 0;
+        while (i < j) {
+            min = Math.min(height[i], height[j]);
+            max = Math.max(min * (j - i), max);
+            if (height[i] <= height[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return max;
+    }
+
 
 }

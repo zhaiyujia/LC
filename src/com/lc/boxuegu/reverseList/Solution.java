@@ -1,5 +1,7 @@
 package com.lc.boxuegu.reverseList;
 
+import java.util.Stack;
+
 /**
  * @author zhai
  * @date 2024/1/19 5:28 PM
@@ -12,7 +14,7 @@ public class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
         //1,2,3,4,5
-        int[] nums = new int[]{1,2,3,4,5};
+        int[] nums = new int[]{1, 2, 3, 4, 5};
         ListNode n1 = new ListNode(1);
         ListNode n2 = new ListNode(2);
         ListNode n3 = new ListNode(3);
@@ -22,30 +24,77 @@ public class Solution {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        s.reverseListV2(n1);
+        s.reverseList2_1(n1);
     }
 
 
-    public ListNode reverseList(ListNode head){
+    public ListNode reverseList1_1(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
-        while (curr != null){
+        while (curr != null) {
             ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
         }
-        return  prev;
+        return prev;
     }
 
-    public ListNode reverseListV2(ListNode head){
+    public ListNode reverseList1_2(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode newHead = reverseList(head.next);
+        ListNode newHead = reverseList1_2(head.next);
         head.next.next = head;
         head.next = null;
         return newHead;
     }
+
+    public ListNode reverseList2_1(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+
+    public ListNode reverseList2_2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode node = reverseList2_2(head);
+        head.next.next = head;
+        head.next = null;
+        return node;
+    }
+
+    public ListNode reverseList2_3(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+
+        Stack<ListNode> stack = new Stack<>();
+        while (head != null) {
+            stack.push(head);
+            head = head.next;
+        }
+
+        ListNode curr = stack.pop();
+        head = curr;
+        while (!stack.isEmpty()) {
+            ListNode pop = stack.pop();
+            curr.next = pop;
+            curr = curr.next;
+        }
+        curr.next = null;
+        return head;
+    }
+
 
 }
