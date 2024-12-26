@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Solution {
 
-    static List<Character> list = new ArrayList<>() {
+    static List<Character> list = new ArrayList<Character>() {
         {
             add('a');
             add('e');
