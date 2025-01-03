@@ -14,8 +14,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] nums = new int[]{2, 7, 11, 15};
-        int[] ints = solution.twoSum2_3(nums, 9);
+        int[] nums = new int[]{3,2,4};
+        int[] ints = solution.twoSum3_3(nums, 6);
         System.out.println(ints[0] + ", " + ints[1]);
     }
 
@@ -89,6 +89,47 @@ public class Solution {
             left++;
             right--;
         }
+        return null;
+    }
+
+
+    public int[] twoSum3_1(int[] nums, int target) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return null;
+    }
+
+    public int[] twoSum3_2(int[] nums, int target) {
+        Map<Integer,Integer> result = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            result.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int value = target - nums[i];
+            if (result.containsKey(value) && result.get(target - nums[i]) != i) {
+                return new int[]{i, result.get(target - nums[i])};
+            }
+        }
+
+        return null;
+    }
+
+    public int[] twoSum3_3(int[] nums, int target) {
+        Map<Integer,Integer> result = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if(result.containsKey(target - nums[i])){
+                int j = result.get(target - nums[i]);
+                return new int[]{i, j};
+            }
+            result.put(nums[i],i);
+        }
+
         return null;
     }
 
