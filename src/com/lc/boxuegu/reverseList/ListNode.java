@@ -23,4 +23,16 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1, 2, 3, 4, 5};
+        ListNode head = new ListNode(0);
+        ListNode curr = head;
+        for (int i = 0; i < nums.length; i++) {
+            ListNode node = new ListNode(nums[i]);
+            curr.next = node;
+            curr = node;
+        }
+
+    }
 }
