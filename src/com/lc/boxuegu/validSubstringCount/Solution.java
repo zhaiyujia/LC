@@ -42,14 +42,7 @@ public class Solution {
     }
 
 
-    private static boolean ok(int[] a, int[] b) {
-        for (int i = 0; i < 26; i++) {
-            if (a[i] < b[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
+
 
     public static long validSubstringCount1_1(String word1, String word2) {
         int[] cnt1 = new int[26], cnt2 = new int[26];
@@ -70,6 +63,15 @@ public class Solution {
             ans += word1.length() - r + 1;
         }
         return ans;
+    }
+
+    private static boolean ok(int[] a, int[] b) {
+        for (int i = 0; i < 26; i++) {
+            if (a[i] < b[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static long validSubstringCount_ERROR(String word1, String word2) {
