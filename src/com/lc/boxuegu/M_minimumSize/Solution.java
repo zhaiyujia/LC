@@ -2,7 +2,7 @@ package com.lc.boxuegu.M_minimumSize;
 
 public class Solution {
 
-
+    // https://leetcode.cn/circle/discuss/0viNMK/
     public static void main(String[] args) {
         int[] nums = new int[]{2,4,8,2};
         int maxOperations = 4;
