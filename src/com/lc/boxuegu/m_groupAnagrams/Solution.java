@@ -1,9 +1,6 @@
 package com.lc.boxuegu.m_groupAnagrams;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author zhaiyj
@@ -19,8 +16,19 @@ public class Solution {
         System.out.println(lists.size());
     }
 
-
     public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> m = new HashMap<>();
+        for (String str : strs) {
+            char[] s = str.toCharArray();
+            Arrays.sort(s);
+            // s 相同的字符串分到同一组
+            m.computeIfAbsent(new String(s), k -> new ArrayList<>()).add(str);
+        }
+        return new ArrayList<>(m.values());
+    }
+
+
+    public List<List<String>> groupAnagrams1(String[] strs) {
         // 使用as码校验
         int length = strs.length;
 
