@@ -16,7 +16,7 @@ public class Solution {
     public List<List<Integer>> generate(int numRows) {
 
         List<List<Integer>> c = new ArrayList<>(numRows); // 预分配空间
-        c.add(List.of(1));
+//        c.add(List.of(1));
         for (int i = 1; i < numRows; i++) {
             List<Integer> row = new ArrayList<>(i + 1); // 预分配空间
             row.add(1);
